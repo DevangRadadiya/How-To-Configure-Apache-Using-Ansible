@@ -1,0 +1,9 @@
+---
+# handlers file for admin
+#
+- name: restart apache
+  service:
+    name: httpd
+    state: restarted
+
+
