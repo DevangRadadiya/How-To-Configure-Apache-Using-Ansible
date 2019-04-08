@@ -1,3 +1,19 @@
 ---
-# tasks file for admin
-- include: apache.yml 
+- hosts: apache
+  remote_user: root
+  become: yes
+  tasks :
+    - name: Installation of Apache
+      package:
+        name: httpd
+        state: latest
+    
+    - name: enabling HTTPD
+      service:
+        name: httpd
+        enabled: yes
+		
+    - name: Start HTTPD 
+	  service:
+        name: httpd
+        state: restarted
